@@ -1,0 +1,33 @@
+{
+  "name": "net-action",
+  "version": "0.1.0",
+  "description": "Implement standard net actions",
+  "main": "Net_action.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/x62en/Net_action"
+  },
+  "keywords": [
+    "CoffeeScript",
+    "net",
+    "get",
+    "post",
+    "put",
+    "delete",
+    "HTTP",
+    "REST",
+    "API"
+  ],
+  "author": "Ben Mz",
+  "license": "Apache v2.0",
+  "bugs": {
+    "url": "https://github.com/x62en/Net_action/issues"
+  },
+  "homepage": "https://github.com/x62en/Net_action",
+  "dependencies": {
+    "request": "^2.55.0"
+  }
+}
