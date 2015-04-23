@@ -1,11 +1,12 @@
 request = require 'request'
 
 DEFAULT_FORMAT = 'json'
-DEBUG_STATE = true
 
 module.exports = class Net_action
 	
-	constructor: (@ROOT_DATA) ->
+	constructor: (@ROOT_DATA, @DEBUG_STATE) ->
+		unless @DEBUG_STATE
+			@DEBUG_STATE = false
 		
 	get: ({ressource, params, @format, successCallback, errorCallback}) ->
 		unless @format?
@@ -53,7 +54,7 @@ module.exports = class Net_action
 
 	_interact: ({method, ressource, params, scb, ecb}) ->
 		unless @ROOT_DATA?
-			if DEBUG_STATE
+			if @DEBUG_STATE
 				console.error '#[!] No host defined !!'
 			return false
 
@@ -70,7 +71,7 @@ module.exports = class Net_action
 		else
 			url = "#{ressource}"
 
-		if DEBUG_STATE
+		if @DEBUG_STATE
 			console.log "#[+] EXEC #{method} -> #{@ROOT_DATA}/#{url}"
 
 		request
@@ -79,7 +80,7 @@ module.exports = class Net_action
 			form: params
 			uri: "#{@ROOT_DATA}/#{url}"
 			(error, response, result) =>
-				if result?
+				if result? and @format is DEFAULT_FORMAT
 					if result.State? and result.State
 						scb result
 					else
