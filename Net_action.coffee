@@ -88,7 +88,7 @@ module.exports = class Net_action
 			url = "#{ressource}"
 
 		if @DEBUG_STATE
-			console.log "#[+] EXEC #{method} -> #{@ROOT_DATA}/#{url}"
+			console.log "#[*] EXEC #{method} -> #{@ROOT_DATA}/#{url}"
 
 		request
 			method: method
